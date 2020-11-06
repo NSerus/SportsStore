@@ -12,6 +12,7 @@ using SportsStore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SportsStore.Models;
 
 namespace SportsStore
 {
@@ -34,6 +35,8 @@ namespace SportsStore
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+            
+            services.AddTransient<ISportsStoreRepository, FakeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
