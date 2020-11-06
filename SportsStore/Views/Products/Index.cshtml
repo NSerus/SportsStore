@@ -1,7 +1,22 @@
-﻿
+﻿@model IEnumerable<Product>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Product List";
 }
 
 <h1>@ViewBag.Title</h1>
+
+
+        @foreach (var p in Model)
+        {
+        <div class="card mt-3 ">
+            <div class="card-header">
+                <span class="font-weight-bold">@p.Name</span>
+            </div>
+        </div>
+            <div class="card-body">
+                @p.Description
+                <hr />
+                <span class="bg-danger">@p.Price</span>
+            </div>
+        }
 
